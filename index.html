@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carreras</title>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="nav">
+            <a class="nav_item" href="#">Inicio</a>
+            <a class="nav_item" href="#">Sobre nosotros</a>
+            <a class="nav_item" href="#">Opciones</a>
+        </nav>
+    </header>
+
+
+    <!-- SECTIONS -->
+    <main class="main">
+
+        <h2 class="main_title">Carrera</h2>
+
+
+        <!-- PANEL DE CONTROL -->
+        <section class="section panelControl">
+            <div class="buttons">
+                <button class="button button--start">Iniciar Carrera</button>
+                <button class="button button--pause">Pausar Carrera</button>
+                <button class="button button--stop">Terminar Carrera</button>
+            </div>
+            <div class="clock">
+                <span class="clock_minutes">00</span>
+                <span>:</span>
+                <span class="clock_seconds">00</span>
+            </div>
+        </section>
+
+
+        <!-- CONTEINER BUTTON AUTOS -->
+        <section class="section conteinerButtonAutos">
+
+            <div class="buttonAuto">
+                <span class="numberAuto">50</span>
+                <i class="fa-solid fa-car iconAuto"></i>
+            </div>
+            
+            <div class="buttonAuto">
+                <span class="numberAuto">50</span>
+                <i class="fa-solid fa-car iconAuto"></i>
+            </div>
+
+            <div class="buttonAuto">
+                <span class="numberAuto">50</span>
+                <i class="fa-solid fa-car iconAuto"></i>
+            </div>
+
+            <div class="buttonAuto">
+                <span class="numberAuto">50</span>
+                <i class="fa-solid fa-car iconAuto"></i>
+            </div>
+
+        </section>
+
+
+        <!-- CONTEINER ADD AUTOS -->
+        <section class="section conteinerAddAutos">
+            <div><i class="fa-solid fa-plus"></i></div>
+        </section>
+
+
+        <!-- TIEMPOS -->
+        <section class="section tiempos">
+
+            <header class="headerTiempos">
+                <h2 class="sectionTitle">Tiempos</h2>
+                <div class="filtros">
+                    <button class="button_filtro">Ordenar por color</button>
+                    <button class="button_filtro">Ordenar por vuelta</button>
+                </div>
+            </header>
+
+            <div class="conteinerTiempos">
+
+                <div class="item_tiempo">
+                    <p>NUMERO DE VUELTA: 1</p>
+                    <p>AUTO: 53</p>
+                    <p>TIEMPO: 54.00s</p>
+                </div>
+
+                <div class="item_tiempo">
+                    <p>NUMERO DE VUELTA: 1</p>
+                    <p>AUTO: 53</p>
+                    <p>TIEMPO: 54.00s</p>
+                </div>
+
+                <div class="item_tiempo">
+                    <p>NUMERO DE VUELTA: 1</p>
+                    <p>AUTO: 53</p>
+                    <p>TIEMPO: 54.00s</p>
+                </div>
+
+                <div class="item_tiempo">
+                    <p>NUMERO DE VUELTA: 1</p>
+                    <p>AUTO: 53</p>
+                    <p>TIEMPO: 54.00s</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TABLA DE POSICIONES -->
+        <section class="section tablaPosiciones">
+            <h2 class="sectionTitle">TABLA DE POSICIONES</h2>
+            
+            <div class="conteinerTablaPosiciones">
+
+                <div class="item_position">
+                    <p>Primer Lugar</p>
+                    <p>NUMERO DE VUELTA: 1</p>
+                    <p>AUTO: 53</p>
+                    <p>TIEMPO: 54.00s</p>
+                </div>
+
+                <div class="item_position">
+                    <p>Primer Lugar</p>
+                    <p>NUMERO DE VUELTA: 1</p>
+                    <p>AUTO: 53</p>
+                    <p>TIEMPO: 54.00s</p>
+                </div>
+
+                <div class="item_position">
+                    <p>Primer Lugar</p>
+                    <p>NUMERO DE VUELTA: 1</p>
+                    <p>AUTO: 53</p>
+                    <p>TIEMPO: 54.00s</p>
+                </div>
+
+                <div class="item_position">
+                    <p>Primer Lugar</p>
+                    <p>NUMERO DE VUELTA: 1</p>
+                    <p>AUTO: 53</p>
+                    <p>TIEMPO: 54.00s</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- EXPORTAR -->
+        <section class="section exportar">
+            <button class="buttonExportar">Exportar los datos</button>
+        </section>
+
+    </main>
+
+    
+    <!-- CUSTOM CAR -->
+    <div class="customCar">
+        <input type="number">
+        <input type="number">
+        <p>Color</p>
+        <div class="conteinerColor">
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+        </div>
+        <button class="buttonCustomCar">Crear Auto</button>
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <script src="https://kit.fontawesome.com/7b35ff6dce.js" crossorigin="anonymous"></script>
+</body>
+</html>
