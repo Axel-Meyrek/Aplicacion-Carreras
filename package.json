@@ -1,7 +1,7 @@
 {
-  "name": "aplicacion-carreras",
+  "name": "electraton-app-carrreras",
   "version": "1.0.0",
-  "description": "",
+  "description": "Aplicacion de carrreras para escuderia electraton",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
