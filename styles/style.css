@@ -8,6 +8,9 @@
     --black: black;
     --colorLight: #F0F0F0;
     --colorDark: #464646;
+    --colorGreen: #4ADD97;
+    --colorYellow: #FFE588;
+    --colorRed: #FF6C6C;
 
     /* FONTS */
     --fontMain: "Inter", sans-serif;
@@ -20,8 +23,8 @@
     --weight-bold: 700;
 
     /* SIZE FONTS  */
-    --fontSize-Small: 1em;
-    --fontSize-big: 1.2em;
+    --fontSize-Small: 1rem;
+    --fontSize-big: 1rem;
 
     /* BOX SHADOW */
     --shadowComponents: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -36,6 +39,108 @@
     list-style: none;
     text-decoration: none;
     font-family: var(--fontMain);
+    font-weight: var(--weight-medium);
     font-size: 16px;
     border: none;
+}
+
+body{
+    background-color: var(--colorLight);
+}
+
+
+.section{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1em;
+    padding-top: 100px;
+}
+
+
+
+/* HEADER */
+.header{
+    background-color: var(--colorLight);
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: var(--shadowComponents);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.nav{
+    display: flex;
+    gap: 20px;
+}
+
+.nav_item{
+    color: black;
+    transition: all .3s;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: .3em 1em;
+}
+
+.nav_item:hover{
+    color: var(--colorDark);
+    scale: 1.1;
+    border-color: var(--colorDark);
+}
+
+/* PANEL DE CONTROL */
+.panelControl{
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.button{
+    width: 100%;
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: var(--shadowComponents);
+    transition: scale .3s;
+}
+
+.button:hover{
+    scale: 1.01;
+}
+
+.button--start{
+    background-color: var(--colorGreen);
+}
+
+.button--pause{
+    background-color: var(--colorYellow);
+}
+
+.button--stop{
+    background-color: var(--colorRed);
+}
+
+.clock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--black);
+    width: 100%;
+    padding: 3em 0;
+    border-radius: 10px;
+    box-shadow: var(--shadowComponents);
+    max-width: 600px;
+}
+
+.clock_minutes, .clock_seconds, .clock_point{
+    font-size: 5rem;
 }
