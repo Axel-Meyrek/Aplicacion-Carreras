@@ -1,0 +1,41 @@
+/* IMPORTACIONES */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* VARIABLES */
+:root{
+    /* COLOR */
+    --white: white;
+    --black: black;
+    --colorLight: #F0F0F0;
+    --colorDark: #464646;
+
+    /* FONTS */
+    --fontMain: "Inter", sans-serif;
+
+    /* WEIGHT FONTS */
+    --weight-light: 300;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semiBold: 600;
+    --weight-bold: 700;
+
+    /* SIZE FONTS  */
+    --fontSize-Small: 1em;
+    --fontSize-big: 1.2em;
+
+    /* BOX SHADOW */
+    --shadowComponents: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+/* NORMALIZACION */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: var(--fontMain);
+    font-size: 16px;
+    border: none;
+}
