@@ -56,12 +56,15 @@ body{
     background-color: var(--colorLight);
 }
 
+.main{
+    padding: 100px 0;
+}
 
 .section{
     max-width: 1200px;
     margin: 0 auto;
     padding: 1em;
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 
@@ -275,6 +278,82 @@ body{
     max-width: 500px;
     width: 100%;
     box-shadow: var(--shadowComponents);
+    transition: scale .3s;
+}
+
+.buttonExportar:hover{
+    scale: 1.01;
+}
+
+
+/* CUSTOM CAR */
+.conteinerCustomCar{
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colorLight);
+    display: none;
+}
+
+.customCar{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 100%;
+    padding: 1em;
+    gap: 50px;
+    border-radius: 10px;
+}
+
+.customCarInput{
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: var(--shadowComponents);
+    color: var(--black);
+    background-color: var(--colorLight);
+    border: 1px solid var(--black);
+}
+
+.customCarp{
+    text-align: center;
+    font-weight: var(--weight-semiBold);
+}
+
+.conteinerColor{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+.color{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    box-shadow: var(--shadowComponents);
+    transition: scale .3s;
+}
+
+.color:hover{
+    scale: 1.01;
+}
+
+.buttonCustomCar{
+    background-color: var(--colorGreen);
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: var(--shadowComponents);
+    transition: scale .3s;
+}
+
+.buttonCustomCar:hover{
+    scale: 1.01;
 }
 
 
