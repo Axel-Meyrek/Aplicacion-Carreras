@@ -24,7 +24,7 @@
     --weight-bold: 700;
 
     /* SIZE FONTS  */
-    --fontSize-Small: 1rem;
+    --fontSize-Small: .8rem;
     --fontSize-big: 1.2rem;
 
     /* BOX SHADOW */
@@ -49,7 +49,6 @@
     text-decoration: none;
     font-family: var(--fontMain);
     border: none;
-    font-size: 16px;
 }
 
 body{
@@ -84,6 +83,11 @@ body{
     z-index: 10;
 }
 
+.logoItem{
+    font-size: var(--fontSize-big);
+    font-weight: var(--weight-regular);
+}
+
 .nav{
     display: flex;
     gap: 20px;
@@ -111,6 +115,7 @@ body{
 }
 
 .buttons{
+    font-size: var(--fontSize-Small);
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -162,16 +167,20 @@ body{
 .conteinerButtonAutos{
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 .buttonAuto{
+    max-width: 150px;   
+    min-width: 20%;
     background-color: var(--colorGreen);
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
-    min-width: 150px;
-    min-height: 150px;
     padding: 1em;
     box-shadow: var(--shadowComponents);
     transition: scale .3s;
@@ -183,7 +192,7 @@ body{
 
 .numberAuto{
     color: var(--white);
-    font-size: 1.5rem;
+    font-size: var(--fontSize-big);
     text-align: right;
 }
 
@@ -193,9 +202,15 @@ body{
     text-align: center;
 }
 
+
+.conteinerAddAutos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .buttonAddAutos{
-    min-height: 150px;
-    max-width: 150px;
+    width: 20%;
     background-color: var(--colorGrey);
     border-radius: 10px;
     padding: 1em;
@@ -237,7 +252,7 @@ body{
 .button_filtro{
     background-color: var(--colorGrey);
     color: var(--white);
-    padding: .5em 2em;
+    padding: 1em;
     border-radius: 5px;
     box-shadow: var(--shadowComponents);
     transition: scale .3s;
@@ -248,6 +263,7 @@ body{
 }
 
 .conteinerTiempos, .conteinerTablaPosiciones{
+    text-align: center;
     padding-top: 50px;
     display: flex;
     flex-direction: column;
@@ -255,6 +271,7 @@ body{
 }
 
 .item_tiempo, .item_position{
+    font-size: var(--fontSize-Small);
     display: flex;
     align-items: center;
     justify-content: space-between;

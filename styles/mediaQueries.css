@@ -1,0 +1,40 @@
+@media (max-width: 650px) {
+
+  .main{
+    padding-top: 40px;
+  }
+
+  .nav{
+    display: none;
+  }
+
+  .panelControl{
+    flex-direction: column;
+  }
+
+  .buttons{
+    order: 1;
+  }
+
+  .clock{
+    padding: 1em;
+  }
+
+  .iconAuto, .iconAddAutos{
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 450px){
+  .headerTiempos{
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 330px){
+  .buttonAuto{
+    max-width: 150px;   
+    min-width: 40%;
+  }
+}
