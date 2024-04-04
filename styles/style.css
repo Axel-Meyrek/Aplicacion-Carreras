@@ -11,6 +11,7 @@
     --colorGreen: #4ADD97;
     --colorYellow: #FFE588;
     --colorRed: #FF6C6C;
+    --colorGrey: #464646; 
 
     /* FONTS */
     --fontMain: "Inter", sans-serif;
@@ -144,3 +145,62 @@ body{
 .clock_minutes, .clock_seconds, .clock_point{
     font-size: 5rem;
 }
+
+
+/* BUTTON AUTOS */
+.conteinerButtonAutos{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.buttonAuto{
+    background-color: var(--colorGreen);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    min-width: 150px;
+    min-height: 150px;
+    padding: 1em;
+    box-shadow: var(--shadowComponents);
+    transition: scale .3s;
+}
+
+.buttonAuto:hover{
+    scale: 1.01;
+}
+
+.numberAuto{
+    color: var(--white);
+    font-size: 1.5rem;
+    text-align: right;
+}
+
+.iconAuto{
+    color: var(--white);
+    font-size: 5rem;
+    text-align: center;
+}
+
+.buttonAddAutos{
+    min-height: 150px;
+    max-width: 150px;
+    background-color: var(--colorGrey);
+    border-radius: 10px;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--shadowComponents);
+    transition: scale .3s;
+}
+
+.buttonAddAutos:hover{
+    scale: 1.01;
+}
+
+.iconAddAutos{
+    font-size: 5rem;
+    color: var(--colorLight);
+}
+
