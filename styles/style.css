@@ -25,10 +25,18 @@
 
     /* SIZE FONTS  */
     --fontSize-Small: 1rem;
-    --fontSize-big: 1rem;
+    --fontSize-big: 1.2rem;
 
     /* BOX SHADOW */
     --shadowComponents: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    /* BACKGROUND */
+    --bgGreen: #4ADD97;
+    --bgYellow: #FFE588;
+    --bgRed: #FF6C6C;
+    --bgPurple: #9A81FF;
+    --bgPink: #FF81CC;
+    --bgBlue: #476F7B;
 
 }
 
@@ -40,9 +48,8 @@
     list-style: none;
     text-decoration: none;
     font-family: var(--fontMain);
-    font-weight: var(--weight-medium);
-    font-size: 16px;
     border: none;
+    font-size: 16px;
 }
 
 body{
@@ -71,6 +78,7 @@ body{
     top: 0;
     left: 0;
     right: 0;
+    z-index: 10;
 }
 
 .nav{
@@ -204,3 +212,94 @@ body{
     color: var(--colorLight);
 }
 
+/* TIEMPOS */
+
+.headerTiempos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sectionTitle{
+    font-size: var(--fontSize-big);
+    font-weight: var(--weight-semiBold);
+}
+
+.filtros{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.button_filtro{
+    background-color: var(--colorGrey);
+    color: var(--white);
+    padding: .5em 2em;
+    border-radius: 5px;
+    box-shadow: var(--shadowComponents);
+    transition: scale .3s;
+}
+
+.button_filtro:hover{
+    scale: 1.01;
+}
+
+.conteinerTiempos, .conteinerTablaPosiciones{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.item_tiempo, .item_position{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: var(--shadowComponents);
+}
+
+
+/* EXPORTAR */
+.exportar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonExportar{
+    background-color: var(--colorGreen);
+    padding: 1em;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: var(--shadowComponents);
+}
+
+
+
+/* BACKGROUNDS */
+.bgGreen{
+    background-color: var(--bgGreen);
+}
+
+.bgYellow{
+    background-color: var(--bgYellow);
+}
+
+.bgRed{
+    background-color: var(--bgRed);
+}
+
+.bgPurple{
+    background-color: var(--bgPurple);
+}
+
+.bgBlue{
+    background-color: var(--bgBlue);
+}
+
+.bgPink{
+    background-color: var(--bgPink);
+}
