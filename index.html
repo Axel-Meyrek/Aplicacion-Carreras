@@ -21,7 +21,7 @@
             <a class="nav_item" href="#">Sobre Esta Aplicación</a>
         </nav>
 
-        <div class="conteinerIconMenu">
+        <div id="btnMenu" class="conteinerIconMenu">
             <i class="fa-solid fa-bars iconMenu"></i>
         </div>
     </header>
@@ -34,14 +34,14 @@
         <!-- PANEL DE CONTROL -->
         <section class="section panelControl">
             <div class="buttons">
-                <button class="button button--start">Iniciar Carrera</button>
-                <button class="button button--pause">Pausar Carrera</button>
-                <button class="button button--stop">Terminar Carrera</button>
+                <button id="btnStart" class="button button--start">Iniciar Carrera</button>
+                <button id="btnPause" class="button button--pause">Pausar Carrera</button>
+                <button id="btnStop" class="button button--stop">Terminar Carrera</button>
             </div>
             <div class="clock">
-                <span class="clock_minutes">00</span>
+                <span id="minutos" class="clock_minutes">00</span>
                 <span class="clock_point">:</span>
-                <span class="clock_seconds">00</span>
+                <span id="segundos" class="clock_seconds">00</span>
             </div>
         </section>
 
@@ -98,7 +98,7 @@
 
         <!-- CONTEINER ADD AUTOS -->
         <section class="section conteinerAddAutos">
-            <div class="buttonAddAutos"><i class="fa-solid fa-plus iconAddAutos"></i></div>
+            <div id="btnAddAutos" class="buttonAddAutos"><i class="fa-solid fa-plus iconAddAutos"></i></div>
         </section>
 
 
@@ -191,7 +191,7 @@
 
     
     <!-- CUSTOM CAR -->
-    <section class="conteinerCustomCar">
+    <section id="customCar" class="conteinerCustomCar">
         <div class="customCar">
             <input class="customCarInput" type="number" placeholder="Numero de Auto">
             <input class="customCarInput" type="number" placeholder="Numero de subtiempos">
@@ -205,11 +205,11 @@
                 <div class="color bgPink"></div>
             </div>
             <button class="buttonCustomCar">Crear Auto</button>
-            <button class="buttonCustomCar buttonCustomCar--cancel">Cancelar</button>
+            <button id="btnCloseCustomCar" class="buttonCustomCar buttonCustomCar--cancel">Cancelar</button>
         </div>
     </section>
 
-    <nav class="navFloat">
+    <nav id="menu" class="navFloat">
         <a class="navFloat_item" href="#">Carrera</a>
         <a class="navFloat_item" href="#">Anteriores Carreras</a>
         <a class="navFloat_item" href="#">Sobre Esta Aplicación</a>
@@ -218,5 +218,6 @@
 
     <!-- SCRIPTS -->
     <script src="https://kit.fontawesome.com/7b35ff6dce.js" crossorigin="anonymous"></script>
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>
