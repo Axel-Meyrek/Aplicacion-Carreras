@@ -315,7 +315,6 @@ body{
     justify-content: center;
     align-items: center;
     background-color: var(--colorLight);
-    display: none;
 }
 
 .customCar{
@@ -324,7 +323,7 @@ body{
     max-width: 600px;
     width: 100%;
     padding: 1em;
-    gap: 50px;
+    gap: 30px;
     border-radius: 10px;
 }
 
@@ -371,6 +370,10 @@ body{
 
 .buttonCustomCar:hover{
     scale: 1.01;
+}
+
+.buttonCustomCar--cancel{
+    background-color: var(--bgRed);
 }
 
 
