@@ -1,12 +1,26 @@
-@media (max-width: 650px) {
+@media (max-width: 670px){
+}
 
-  .main{
-    padding-top: 40px;
+
+@media (max-width: 670px) {
+
+  .header{
+    justify-content: space-between;
   }
 
   .nav{
     display: none;
   }
+  
+  .conteinerIconMenu{
+    display: flex;
+  }
+
+
+  .main{
+    padding-top: 40px;
+  }
+
 
   .panelControl{
     flex-direction: column;

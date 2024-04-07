@@ -107,6 +107,12 @@ body{
     border-color: var(--colorDark);
 }
 
+.conteinerIconMenu{
+    display: none;
+}
+.iconMenu{
+}
+
 /* PANEL DE CONTROL */
 .panelControl{
     display: flex;
@@ -315,6 +321,7 @@ body{
     justify-content: center;
     align-items: center;
     background-color: var(--colorLight);
+    display: none;
 }
 
 .customCar{
