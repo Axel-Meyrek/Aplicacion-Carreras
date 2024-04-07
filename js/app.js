@@ -58,7 +58,8 @@ const stopCarrer = () => {
     carrerActive = false
     minutos = 0
     segundos = 0
-
+    $minutos.textContent = minutos
+    $segundos.textContent = segundos
 }
 
 
