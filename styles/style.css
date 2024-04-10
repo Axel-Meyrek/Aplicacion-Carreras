@@ -231,6 +231,10 @@ body{
     color: var(--colorLight);
 }
 
+.select{
+    border: 2px solid black;
+}
+
 /* TIEMPOS */
 
 .headerTiempos{

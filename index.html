@@ -47,52 +47,8 @@
 
 
         <!-- CONTEINER BUTTON AUTOS -->
-        <section class="section conteinerButtonAutos">
-
-            <div class="buttonAuto bgPurple">
-                <span class="numberAuto">50</span>
-                <i class="fa-solid fa-car iconAuto"></i>
-            </div>
-            
-            <div class="buttonAuto bgBlue">
-                <span class="numberAuto">50</span>
-                <i class="fa-solid fa-car iconAuto"></i>
-            </div>
-            <div class="buttonAuto bgBlue">
-                <span class="numberAuto">50</span>
-                <i class="fa-solid fa-car iconAuto"></i>
-            </div>
-            <div class="buttonAuto bgBlue">
-                <span class="numberAuto">50</span>
-                <i class="fa-solid fa-car iconAuto"></i>
-            </div>
-            <div class="buttonAuto bgBlue">
-                <span class="numberAuto">50</span>
-                <i class="fa-solid fa-car iconAuto"></i>
-            </div>
-
-            <div class="buttonAuto bgRed">
-                <span class="numberAuto">50</span>
-                <i class="fa-solid fa-car iconAuto"></i>
-            </div>
-            <div class="buttonAuto bgRed">
-                <span class="numberAuto">50</span>
-                <i class="fa-solid fa-car iconAuto"></i>
-            </div>
-            <div class="buttonAuto bgRed">
-                <span class="numberAuto">50</span>
-                <i class="fa-solid fa-car iconAuto"></i>
-            </div>
-            <div class="buttonAuto bgRed">
-                <span class="numberAuto">50</span>
-                <i class="fa-solid fa-car iconAuto"></i>
-            </div>
-
-            <div class="buttonAuto bgPink">
-                <span class="numberAuto">50</span>
-                <i class="fa-solid fa-car iconAuto"></i>
-            </div>
-
+        <section id="conteinerCars" class="section conteinerButtonAutos">
+            <!-- LOS AUTOS SE AGREAN DE FORMA DINAMICA -->
         </section>
 
 
@@ -108,7 +64,7 @@
             <header class="headerTiempos">
                 <h2 class="sectionTitle">Tiempos</h2>
                 <div class="filtros">
-                    <button class="button_filtro">Ordenar por color</button>
+                    <button class="button_filtro">Ordenar por auto</button>
                     <button class="button_filtro">Ordenar por vuelta</button>
                 </div>
             </header>
@@ -193,18 +149,18 @@
     <!-- CUSTOM CAR -->
     <section id="customCar" class="conteinerCustomCar">
         <div class="customCar">
-            <input class="customCarInput" type="number" placeholder="Numero de Auto">
-            <input class="customCarInput" type="number" placeholder="Numero de subtiempos">
+            <input id="inputNumberCar" class="customCarInput" type="number" placeholder="Numero de Auto">
+            <input id="inputNumberTurns" class="customCarInput" type="number" placeholder="Numero de subtiempos">
             <p class="customCarp">Color del Auto</p>
             <div class="conteinerColor">
-                <div class="color bgBlue"></div>
+                <div class="color bgBlue select"></div>
                 <div class="color bgRed"></div>
                 <div class="color bgPurple"></div>
                 <div class="color bgGreen"></div>
                 <div class="color bgYellow"></div>
                 <div class="color bgPink"></div>
             </div>
-            <button class="buttonCustomCar">Crear Auto</button>
+            <button id="btnCreateCar" class="buttonCustomCar">Crear Auto</button>
             <button id="btnCloseCustomCar" class="buttonCustomCar buttonCustomCar--cancel">Cancelar</button>
         </div>
     </section>

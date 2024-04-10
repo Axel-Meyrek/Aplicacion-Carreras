@@ -8,23 +8,33 @@ import {
     $segundos,
     btnPause,
     btnStop,
+    btnCreateCar
 } from './components.js'
 
 /* FUNCIONES */
 import {
     openMenu,
     openCustomCar,
-    closeCustomCar
+    closeCustomCar,
+    saveCar,
+    addEventsColors
 } from './funciones.js'
 
 
 
 
-/* VARIABLES */
+/* VARIABLES Globales*/
+
+export const cars = []
+
 let carrerActive = false
+
 let keyInterval = 0
+
 let segundos = 0
+
 let minutos = 0
+
 
 
 
@@ -66,6 +76,7 @@ const stopCarrer = () => {
 
 /* CARGAR APP */
 document.addEventListener('DOMContentLoaded', () => {
+    addEventsColors()
 
     btnMenu.addEventListener('click', openMenu)
 
@@ -78,6 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
     btnPause.addEventListener('click', pauseCarrer)
 
     btnStop.addEventListener('click', stopCarrer)
+
+    btnCreateCar.addEventListener('click', saveCar)
 
 })
 

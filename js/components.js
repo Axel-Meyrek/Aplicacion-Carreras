@@ -13,3 +13,5 @@ export const $segundos = document.querySelector('#segundos')
 export const btnPause = document.querySelector('#btnPause')
 
 export const btnStop = document.querySelector('#btnStop')
+
+export const btnCreateCar = document.querySelector('#btnCreateCar')
