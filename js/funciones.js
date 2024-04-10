@@ -1,5 +1,5 @@
 /* IMPORTACIONES */
-import {cars, minutos, segundos, carrerActive} from './app.js'
+import { cars, minutos, segundos, carrerActive } from './app.js'
 
 export const openMenu = () => {
     const menu = document.querySelector('#menu')
@@ -19,7 +19,7 @@ export const closeCustomCar = () => {
 export const addEventsColors = () => {
     const btnColors = document.querySelectorAll('.color')
     btnColors.forEach(btnColor => btnColor.addEventListener('click', (e) => {
-        btnColors.forEach(btnColorNot => {btnColorNot.classList.remove('select')})
+        btnColors.forEach(btnColorNot => { btnColorNot.classList.remove('select') })
         btnColor.classList.add('select')
     }))
 }
@@ -28,7 +28,7 @@ export const saveCar = () => {
     const $inputNumberCar = document.querySelector('#inputNumberCar')
     const $numberSubTimes = document.querySelector('#inputNumberTurns')
 
-    if($inputNumberCar.value == '' || $numberSubTimes.value == '') return
+    if ($inputNumberCar.value == '' || $numberSubTimes.value == '') return
 
     const numberCar = $inputNumberCar.value
     const numberSubTimes = $numberSubTimes.value
@@ -73,7 +73,7 @@ export const renderCar = () => {
         $div.appendChild($span)
         $div.appendChild($i)
 
-        $div.addEventListener('click', ()=> saveTime(car.numberCar))
+        $div.addEventListener('click', () => saveTime(car.numberCar))
 
         $conteinerCars.appendChild($div)
     })
@@ -82,15 +82,15 @@ export const renderCar = () => {
 export const setColor = () => {
     let colorSelect
     const btnColors = document.querySelectorAll('.color')
-    btnColors.forEach(btnColor => {if(btnColor.classList[2] == 'select') colorSelect = btnColor.classList[1]})
+    btnColors.forEach(btnColor => { if (btnColor.classList[2] == 'select') colorSelect = btnColor.classList[1] })
     return colorSelect
 }
 
 export const saveTime = (numberCar) => {
-    if(carrerActive == false){
+    if (carrerActive == false) {
         return
     }
-    
+
     const carSelect = cars.find(car => car.numberCar == numberCar)
     carSelect.times.push({
         minutos,
@@ -102,7 +102,7 @@ export const saveTime = (numberCar) => {
 export const renderTimes = () => {
     const $conteinerTimes = document.querySelector('#times')
     $conteinerTimes.innerHTML = ' '
-    cars.forEach( car => {
+    cars.forEach(car => {
         car.times.forEach((time, i) => {
             const $itemTime = document.createElement('div')
             const $numberLap = document.createElement('p')
@@ -110,7 +110,7 @@ export const renderTimes = () => {
             const $time = document.createElement('p')
 
 
-            $numberLap.textContent = `VUELTA NUMERO: ${Math.floor(i / car.numberSubTimes)+1}`
+            $numberLap.textContent = `VUELTA NUMERO: ${Math.floor(i / car.numberSubTimes) + 1}`
             $numberCar.textContent = `AUTO: ${car.numberCar}`
             $time.textContent = `TIEMPO : ${time.minutos}:${time.segundos}`
 
