@@ -17,7 +17,7 @@ import {
     openCustomCar,
     closeCustomCar,
     saveCar,
-    addEventsColors
+    addEventsColors,
 } from './funciones.js'
 
 
@@ -27,13 +27,14 @@ import {
 
 export const cars = []
 
-let carrerActive = false
+export let carrerActive = false
+
+export let segundos = 0
+
+export let minutos = 0
 
 let keyInterval = 0
 
-let segundos = 0
-
-let minutos = 0
 
 
 

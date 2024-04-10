@@ -1,5 +1,5 @@
 /* IMPORTACIONES */
-import {cars} from './app.js'
+import {cars, minutos, segundos, carrerActive} from './app.js'
 
 export const openMenu = () => {
     const menu = document.querySelector('#menu')
@@ -26,17 +26,18 @@ export const addEventsColors = () => {
 
 export const saveCar = () => {
     const $inputNumberCar = document.querySelector('#inputNumberCar')
-    const $inputNumberTurns = document.querySelector('#inputNumberTurns')
+    const $numberSubTimes = document.querySelector('#inputNumberTurns')
 
-    if($inputNumberCar.value == '' || $inputNumberTurns.value == '') return
+    if($inputNumberCar.value == '' || $numberSubTimes.value == '') return
 
     const numberCar = $inputNumberCar.value
-    const numberTurn = $inputNumberTurns.value
+    const numberSubTimes = $numberSubTimes.value
 
 
     cars.push({
         numberCar,
-        numberTurn,
+        numberSubTimes,
+        times: [],
         colorCar: setColor()
     })
 
@@ -72,6 +73,8 @@ export const renderCar = () => {
         $div.appendChild($span)
         $div.appendChild($i)
 
+        $div.addEventListener('click', ()=> saveTime(car.numberCar))
+
         $conteinerCars.appendChild($div)
     })
 }
@@ -81,4 +84,43 @@ export const setColor = () => {
     const btnColors = document.querySelectorAll('.color')
     btnColors.forEach(btnColor => {if(btnColor.classList[2] == 'select') colorSelect = btnColor.classList[1]})
     return colorSelect
+}
+
+export const saveTime = (numberCar) => {
+    if(carrerActive == false){
+        return
+    }
+    
+    const carSelect = cars.find(car => car.numberCar == numberCar)
+    carSelect.times.push({
+        minutos,
+        segundos
+    })
+    renderTimes()
+}
+
+export const renderTimes = () => {
+    const $conteinerTimes = document.querySelector('#times')
+    $conteinerTimes.innerHTML = ' '
+    cars.forEach( car => {
+        car.times.forEach((time, i) => {
+            const $itemTime = document.createElement('div')
+            const $numberLap = document.createElement('p')
+            const $numberCar = document.createElement('p')
+            const $time = document.createElement('p')
+
+
+            $numberLap.textContent = `VUELTA NUMERO: ${Math.floor(i / car.numberSubTimes)+1}`
+            $numberCar.textContent = `AUTO: ${car.numberCar}`
+            $time.textContent = `TIEMPO : ${time.minutos}:${time.segundos}`
+
+            $itemTime.appendChild($numberLap)
+            $itemTime.appendChild($numberCar)
+            $itemTime.appendChild($time)
+
+            $itemTime.classList.add('item_tiempo', car.colorCar)
+
+            $conteinerTimes.appendChild($itemTime)
+        })
+    })
 }
