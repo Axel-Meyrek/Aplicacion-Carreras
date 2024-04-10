@@ -7,6 +7,7 @@ export const openMenu = () => {
 }
 
 export const openCustomCar = () => {
+    if(carrerActive == true) return
     const customCar = document.querySelector('#customCar')
     customCar.classList.add('active')
 }
