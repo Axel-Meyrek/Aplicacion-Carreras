@@ -18,6 +18,9 @@ import {
     closeCustomCar,
     saveCar,
     addEventsColors,
+    saveEndTime,
+    saveTheBestPositions,
+    renderBestPositions
 } from './funciones.js'
 
 
@@ -40,9 +43,12 @@ let keyInterval = 0
 
 
 const StartCareer = () => {
-    if (carrerActive == true) {
-        return
-    }
+    if (carrerActive == true || cars.length == 0) return
+
+    //MOSTRAR LA SECCION DE TIEMPOS
+    const $headerTimes = document.querySelector('#headerTimes')
+    $headerTimes.classList.add('displayFlex')
+
     carrerActive = true
     keyInterval = setInterval(() => {
         segundos++
@@ -65,12 +71,29 @@ const pauseCarrer = () => {
 }
 
 const stopCarrer = () => {
+    if(cars.length == 0) return
+
     clearInterval(keyInterval);
     carrerActive = false
     minutos = 0
     segundos = 0
     $minutos.textContent = '00'
     $segundos.textContent = '00'
+
+    /* MOSTRAR LA SECCION DE POSICIONES */
+    const $sectionTablaPosiciones = document.querySelector('#sectionTablaPosiciones')
+    $sectionTablaPosiciones.classList.add('displayFlex')
+
+    /* MOSTRAR LA SECCION DE EXPORTAR */
+    const $sectionExport = document.querySelector('#sectionExport')
+    $sectionExport.classList.add('displayFlex')
+    saveEndTime()
+
+    saveTheBestPositions()
+
+    renderBestPositions()
+
+    
 }
 
 

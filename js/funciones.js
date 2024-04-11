@@ -146,3 +146,46 @@ export const renderTimes = () => {
         })
     })
 }
+
+export const saveEndTime = () => {
+    cars.forEach(car => {
+        let endTime = 0
+        const {times} = car
+        times.forEach(time => {
+            endTime += (time.minutos * 60) + (time.segundos)
+        })
+
+        car.endTime = endTime
+    })
+}
+
+export const saveTheBestPositions = () => {
+    cars.sort((a, b) => a.endTime - b.endTime);
+}
+
+export const renderBestPositions = () => {
+    const $tablaPositions = document.querySelector('#tablaPositions')
+    $tablaPositions.innerHTML = ''
+
+    cars.forEach( (car, i) => {
+        const $div = document.createElement('div')
+        const $position = document.createElement('p')
+        const $numberLaps = document.createElement('p')
+        const $numberCar = document.createElement('p')
+        const $endTime = document.createElement('p')
+
+        $div.classList.add('item_position', car.colorCar)
+
+        $position.textContent = `POSICION: ${i+1}`
+        $numberLaps.textContent = `NUMERO DE VUELTAS: ${Math.floor(car.times.length / car.numberSubTimes)}`
+        $numberCar.textContent = `AUTO: ${car.numberCar}`
+        $endTime.textContent = `TIEMPO: ${car.endTime}s`
+
+        $div.appendChild($position)
+        $div.appendChild($numberLaps)
+        $div.appendChild($numberCar)
+        $div.appendChild($endTime)
+
+        $tablaPositions.appendChild($div)
+    })
+}

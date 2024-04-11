@@ -92,16 +92,16 @@ body{
 
 .nav_item{
     color: black;
-    transition: all .3s;
     border: 1px solid transparent;
     border-radius: 5px;
     padding: .3em 1em;
+    transition: all .3s;
 }
 
 .nav_item:hover{
     color: var(--colorDark);
-    scale: 1.1;
     border-color: var(--colorDark);
+    scale: 1.1;
 }
 
 .conteinerIconMenu{
@@ -241,6 +241,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    display: none;
 }
 
 .sectionTitle{
@@ -267,7 +268,13 @@ body{
     scale: 1.01;
 }
 
+.sectionTablaPosiciones{
+    flex-direction: column;
+    display: none;
+}
+
 .conteinerTiempos, .conteinerTablaPosiciones{
+    display: flex;
     text-align: center;
     padding-top: 50px;
     display: flex;
@@ -291,6 +298,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 
 .buttonExportar{
@@ -446,3 +454,6 @@ body{
     background-color: var(--bgPink);
 }
 
+.displayFlex{
+    display: flex;
+}

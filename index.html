@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/mediaQueries.css">
-    <title>Carreras</title>
+    <title></title>
 </head>
 
 <body>
@@ -63,7 +63,7 @@
         <!-- TIEMPOS -->
         <section class="section tiempos">
 
-            <header class="headerTiempos">
+            <header id="headerTimes" class="headerTiempos">
                 <h2 class="sectionTitle">TIEMPOS</h2>
                 <!-- <div class="filtros">
                     <button class="button_filtro">Ordenar por auto</button>
@@ -79,45 +79,17 @@
 
 
         <!-- TABLA DE POSICIONES -->
-        <section class="section tablaPosiciones">
+        <section id="sectionTablaPosiciones" class="section sectionTablaPosiciones">
             <h2 class="sectionTitle">TABLA DE POSICIONES</h2>
 
-            <div class="conteinerTablaPosiciones">
-
-                <div class="item_position bgGreen">
-                    <p>Primer Lugar</p>
-                    <p>NUMERO DE VUELTA: 1</p>
-                    <p>AUTO: 53</p>
-                    <p>TIEMPO: 54.00s</p>
-                </div>
-
-                <div class="item_position bgYellow">
-                    <p>Primer Lugar</p>
-                    <p>NUMERO DE VUELTA: 1</p>
-                    <p>AUTO: 53</p>
-                    <p>TIEMPO: 54.00s</p>
-                </div>
-
-                <div class="item_position bgRed">
-                    <p>Primer Lugar</p>
-                    <p>NUMERO DE VUELTA: 1</p>
-                    <p>AUTO: 53</p>
-                    <p>TIEMPO: 54.00s</p>
-                </div>
-
-                <div class="item_position bgPurple">
-                    <p>Primer Lugar</p>
-                    <p>NUMERO DE VUELTA: 1</p>
-                    <p>AUTO: 53</p>
-                    <p>TIEMPO: 54.00s</p>
-                </div>
-
+            <div id="tablaPositions" class="conteinerTablaPosiciones">
+                <!-- LAS POSICIONES SE GENERAN DE FORMA DINAMICA -->
             </div>
         </section>
 
 
         <!-- EXPORTAR -->
-        <section class="section exportar">
+        <section id="sectionExport" class="section exportar">
             <button class="buttonExportar">Exportar los datos</button>
         </section>
 
