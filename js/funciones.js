@@ -88,15 +88,36 @@ export const setColor = () => {
 }
 
 export const saveTime = (numberCar) => {
-    if (carrerActive == false) {
-        return
-    }
-
+    if (carrerActive == false) return
+    
     const carSelect = cars.find(car => car.numberCar == numberCar)
-    carSelect.times.push({
-        minutos,
-        segundos
-    })
+    
+    let timeAnterior = carSelect.times.length - 1;
+    
+    if(carSelect.times.length == 0){
+        carSelect.times.push({
+            clockTimeMinutos:minutos,
+            clockTimeSeconds:segundos,
+            minutos,
+            segundos
+        })
+    }else{
+        if(segundos - carSelect.times[timeAnterior].clockTimeSeconds < 0){
+            carSelect.times.push({
+                clockTimeMinutos:minutos,
+                clockTimeSeconds:segundos,
+                minutos: (minutos - carSelect.times[timeAnterior].clockTimeMinutos)-1,
+                segundos: Math.abs(segundos - carSelect.times[timeAnterior].clockTimeSeconds)
+            })
+        }else{
+            carSelect.times.push({
+                clockTimeMinutos:minutos,
+                clockTimeSeconds:segundos,
+                minutos: minutos - carSelect.times[timeAnterior].clockTimeMinutos,
+                segundos: segundos - carSelect.times[timeAnterior].clockTimeSeconds
+            })
+        }
+    }
     renderTimes()
 }
 
