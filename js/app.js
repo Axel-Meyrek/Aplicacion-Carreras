@@ -71,6 +71,7 @@ const pauseCarrer = () => {
 }
 
 const stopCarrer = () => {
+    window.location.href = '#sectionTablaPosiciones'
     if(cars.length == 0) return
 
     clearInterval(keyInterval);
