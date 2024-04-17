@@ -29,15 +29,15 @@ export const saveCar = () => {
     const $inputNumberCar = document.querySelector('#inputNumberCar')
     const $numberSubTimes = document.querySelector('#inputNumberTurns')
 
-    if ($inputNumberCar.value == '' || $numberSubTimes.value == '') return
+    if ($inputNumberCar.value == '') return
 
-    const numberCar = $inputNumberCar.value
-    const numberSubTimes = $numberSubTimes.value
+    if($numberSubTimes.value == '') $numberSubTimes.value = 1
+    
 
 
     cars.push({
-        numberCar,
-        numberSubTimes,
+        numberCar : $inputNumberCar.value,
+        numberSubTimes : $numberSubTimes.value,
         times: [],
         colorCar: setColor()
     })
