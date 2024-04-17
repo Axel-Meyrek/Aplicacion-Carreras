@@ -28,8 +28,7 @@ import {
 
 
 /* VARIABLES Globales*/
-
-export const cars = []
+export let cars = []
 
 export let carrerActive = false
 

@@ -33,7 +33,17 @@ export const saveCar = () => {
 
     if($numberSubTimes.value == '') $numberSubTimes.value = 1
     
+    let existente = false
+    cars.forEach(car => {
+        if($inputNumberCar.value == car.numberCar){
+            console.log('Este auto ya existe')
+            existente = true;
+        }
+    })
 
+    if(existente){
+        return
+    }
 
     cars.push({
         numberCar : $inputNumberCar.value,
