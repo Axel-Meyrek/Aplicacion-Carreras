@@ -8,7 +8,7 @@ import {
     $segundos,
     btnPause,
     btnStop,
-    btnCreateCar
+    btnCreateCar,
 } from './components.js'
 
 /* FUNCIONES */
@@ -20,7 +20,8 @@ import {
     addEventsColors,
     saveEndTime,
     saveTheBestPositions,
-    renderBestPositions
+    renderBestPositions,
+    exportData
 } from './funciones.js'
 
 
@@ -71,30 +72,32 @@ const pauseCarrer = () => {
 }
 
 const stopCarrer = () => {
-    window.location.href = '#sectionTablaPosiciones'
     if(cars.length == 0) return
-
+    
     clearInterval(keyInterval);
     carrerActive = false
     minutos = 0
     segundos = 0
     $minutos.textContent = '00'
     $segundos.textContent = '00'
-
+    
     /* MOSTRAR LA SECCION DE POSICIONES */
     const $sectionTablaPosiciones = document.querySelector('#sectionTablaPosiciones')
     $sectionTablaPosiciones.classList.add('displayFlex')
-
+    
     /* MOSTRAR LA SECCION DE EXPORTAR */
     const $sectionExport = document.querySelector('#sectionExport')
     $sectionExport.classList.add('displayFlex')
     saveEndTime()
-
-    saveTheBestPositions()
-
-    renderBestPositions()
-
     
+    saveTheBestPositions()
+    
+    renderBestPositions()
+    
+    const btnExportData = document.querySelector('#btnExportData')
+    btnExportData.addEventListener('click', exportData)
+    
+    window.location.href = '#sectionTablaPosiciones'
 }
 
 

@@ -7,7 +7,7 @@ export const openMenu = () => {
 }
 
 export const openCustomCar = () => {
-    if(carrerActive == true) return
+    if (carrerActive == true) return
     const customCar = document.querySelector('#customCar')
     customCar.classList.add('active')
 }
@@ -89,30 +89,30 @@ export const setColor = () => {
 
 export const saveTime = (numberCar) => {
     if (carrerActive == false) return
-    
+
     const carSelect = cars.find(car => car.numberCar == numberCar)
-    
+
     let timeAnterior = carSelect.times.length - 1;
-    
-    if(carSelect.times.length == 0){
+
+    if (carSelect.times.length == 0) {
         carSelect.times.push({
-            clockTimeMinutos:minutos,
-            clockTimeSeconds:segundos,
+            clockTimeMinutos: minutos,
+            clockTimeSeconds: segundos,
             minutos,
             segundos
         })
-    }else{
-        if(segundos - carSelect.times[timeAnterior].clockTimeSeconds < 0){
+    } else {
+        if (segundos - carSelect.times[timeAnterior].clockTimeSeconds < 0) {
             carSelect.times.push({
-                clockTimeMinutos:minutos,
-                clockTimeSeconds:segundos,
-                minutos: (minutos - carSelect.times[timeAnterior].clockTimeMinutos)-1,
+                clockTimeMinutos: minutos,
+                clockTimeSeconds: segundos,
+                minutos: (minutos - carSelect.times[timeAnterior].clockTimeMinutos) - 1,
                 segundos: Math.abs(segundos - carSelect.times[timeAnterior].clockTimeSeconds)
             })
-        }else{
+        } else {
             carSelect.times.push({
-                clockTimeMinutos:minutos,
-                clockTimeSeconds:segundos,
+                clockTimeMinutos: minutos,
+                clockTimeSeconds: segundos,
                 minutos: minutos - carSelect.times[timeAnterior].clockTimeMinutos,
                 segundos: segundos - carSelect.times[timeAnterior].clockTimeSeconds
             })
@@ -150,7 +150,7 @@ export const renderTimes = () => {
 export const saveEndTime = () => {
     cars.forEach(car => {
         let endTime = 0
-        const {times} = car
+        const { times } = car
         times.forEach(time => {
             endTime += (time.minutos * 60) + (time.segundos)
         })
@@ -167,7 +167,7 @@ export const renderBestPositions = () => {
     const $tablaPositions = document.querySelector('#tablaPositions')
     $tablaPositions.innerHTML = ''
 
-    cars.forEach( (car, i) => {
+    cars.forEach((car, i) => {
         const $div = document.createElement('div')
         const $position = document.createElement('p')
         const $numberLaps = document.createElement('p')
@@ -176,7 +176,7 @@ export const renderBestPositions = () => {
 
         $div.classList.add('item_position', car.colorCar)
 
-        $position.textContent = `POSICION: ${i+1}`
+        $position.textContent = `POSICION: ${i + 1}`
         $numberLaps.textContent = `NUMERO DE VUELTAS: ${Math.floor(car.times.length / car.numberSubTimes)}`
         $numberCar.textContent = `AUTO: ${car.numberCar}`
         $endTime.textContent = `TIEMPO: ${car.endTime}s`
@@ -188,4 +188,36 @@ export const renderBestPositions = () => {
 
         $tablaPositions.appendChild($div)
     })
+}
+
+export const exportData = () => {
+    cars.forEach(car => {
+        fetch("https://sheet.best/api/sheets/e5351bcb-9969-463a-bee1-22d227443399", {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                'DATE': fechaActual(),
+                'NUMBER CAR': car.numberCar,
+                'NUMBER SUBTIMES': car.numberSubTimes,
+                'END TIMES (s)': car.endTime,
+            }),
+        })
+
+        console.log('Exportado correctamente');
+    })
+}
+
+export const fechaActual = () => {
+    let fechaActual = new Date()
+
+    let dia = fechaActual.getDate()
+    let mes = fechaActual.getMonth() + 1
+    let año = fechaActual.getFullYear()
+
+    let fechaFormateada = dia.toString().padStart(2, '0') + '/' + mes.toString().padStart(2, '0') + '/' + año
+
+    return fechaFormateada
 }
