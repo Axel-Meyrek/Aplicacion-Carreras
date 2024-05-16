@@ -10,6 +10,8 @@ export const $minutos = document.querySelector('#minutos')
 
 export const $segundos = document.querySelector('#segundos')
 
+export const $microSegundos = document.querySelector('#microSegundos')
+
 export const btnPause = document.querySelector('#btnPause')
 
 export const btnStop = document.querySelector('#btnStop')

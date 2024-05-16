@@ -6,6 +6,7 @@ import {
     btnStart,
     $minutos,
     $segundos,
+    $microSegundos,
     btnPause,
     btnStop,
     btnCreateCar,
@@ -21,7 +22,8 @@ import {
     saveEndTime,
     saveTheBestPositions,
     renderBestPositions,
-    exportData
+    exportData,
+    renderAutoVueltas
 } from './funciones.js'
 
 
@@ -30,13 +32,19 @@ import {
 /* VARIABLES Globales*/
 export let cars = []
 
+let datosExport = false
+
 export let carrerActive = false
 
 export let segundos = 0
 
 export let minutos = 0
 
+export let microsegundos = 0
+
+
 let keyInterval = 0
+
 
 
 
@@ -49,20 +57,32 @@ const StartCareer = () => {
     const $headerTimes = document.querySelector('#headerTimes')
     $headerTimes.classList.add('displayFlex')
 
+    /* MOSTAR LA SECCION DE VUELTAS */
+    const $sectionVueltas = document.querySelector('#sectionVueltas')
+    $sectionVueltas.classList.add('displayFlex')
+    renderAutoVueltas()
+
     carrerActive = true
     keyInterval = setInterval(() => {
-        segundos++
-        if (segundos == 60) {
-            segundos = 0
-            minutos++
-            if (minutos < 10) $minutos.textContent = `0${minutos}`
-            else $minutos.textContent = minutos
-            $segundos.textContent = `0${segundos}`
+        microsegundos++
+        if (microsegundos == 100) {
+            microsegundos = 0
+            segundos++
+            if (segundos == 60) {
+                segundos = 0
+                minutos++
+                if (minutos < 10) $minutos.textContent = `0${minutos}`
+                else $minutos.textContent = minutos
+                $segundos.textContent = `0${segundos}`
+            } else {
+                if (segundos < 10) $segundos.textContent = `0${segundos}`
+                else $segundos.textContent = segundos
+            }
         } else {
-            if (segundos < 10) $segundos.textContent = `0${segundos}`
-            else $segundos.textContent = segundos
+            if (microsegundos < 10) $microSegundos.textContent = `0${microsegundos}`
+            else $microSegundos.textContent = microsegundos
         }
-    }, 1000)
+    }, 10)
 }
 
 const pauseCarrer = () => {
@@ -94,7 +114,13 @@ const stopCarrer = () => {
     renderBestPositions()
     
     const btnExportData = document.querySelector('#btnExportData')
-    btnExportData.addEventListener('click', exportData)
+    btnExportData.addEventListener('click', () => {
+        if(datosExport){
+            return
+        }
+        exportData()
+        datosExport = true
+    })
     
     window.location.href = '#sectionTablaPosiciones'
 }
@@ -121,3 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
+
+window.addEventListener('beforeunload', function (e) {
+    e.preventDefault();
+    // Muestra un mensaje de advertencia personalizado
+    const confirmationMessage = '¿Estás seguro de salir de la página? Si lo haces, podrías perder la información que has ingresado.';
+    return confirmationMessage;
+});

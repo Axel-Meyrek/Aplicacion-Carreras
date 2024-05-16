@@ -1,5 +1,5 @@
 /* IMPORTACIONES */
-import { cars, minutos, segundos, carrerActive } from './app.js'
+import { cars, minutos, segundos, microsegundos, carrerActive } from './app.js'
 
 export const openMenu = () => {
     const menu = document.querySelector('#menu')
@@ -84,7 +84,10 @@ export const renderCar = () => {
         $div.appendChild($span)
         $div.appendChild($i)
 
-        $div.addEventListener('click', () => saveTime(car.numberCar))
+        $div.addEventListener('click', () => {
+            saveTime(car.numberCar)
+            renderAutoVueltas()
+        })
 
         $conteinerCars.appendChild($div)
     })
@@ -108,23 +111,29 @@ export const saveTime = (numberCar) => {
         carSelect.times.push({
             clockTimeMinutos: minutos,
             clockTimeSeconds: segundos,
+            clockTimeMicrosegundos: microsegundos,
             minutos,
-            segundos
+            segundos,
+            microsegundos
         })
     } else {
         if (segundos - carSelect.times[timeAnterior].clockTimeSeconds < 0) {
             carSelect.times.push({
                 clockTimeMinutos: minutos,
                 clockTimeSeconds: segundos,
+                clockTimeMicrosegundos: microsegundos,
                 minutos: (minutos - carSelect.times[timeAnterior].clockTimeMinutos) - 1,
-                segundos: Math.abs(segundos - carSelect.times[timeAnterior].clockTimeSeconds)
+                segundos: Math.abs(segundos - carSelect.times[timeAnterior].clockTimeSeconds),
+                microsegundos
             })
         } else {
             carSelect.times.push({
                 clockTimeMinutos: minutos,
                 clockTimeSeconds: segundos,
+                clockTimeMicrosegundos: microsegundos,
                 minutos: minutos - carSelect.times[timeAnterior].clockTimeMinutos,
-                segundos: segundos - carSelect.times[timeAnterior].clockTimeSeconds
+                segundos: segundos - carSelect.times[timeAnterior].clockTimeSeconds,
+                microsegundos
             })
         }
     }
@@ -144,7 +153,7 @@ export const renderTimes = () => {
 
             $numberLap.textContent = `VUELTA NUMERO: ${Math.floor(i / car.numberSubTimes) + 1}`
             $numberCar.textContent = `AUTO: ${car.numberCar}`
-            $time.textContent = `TIEMPO : ${time.minutos}:${time.segundos}`
+            $time.textContent = `TIEMPO : ${time.minutos}:${time.segundos}.${time.microsegundos}`
 
             $itemTime.appendChild($numberLap)
             $itemTime.appendChild($numberCar)
@@ -157,21 +166,33 @@ export const renderTimes = () => {
     })
 }
 
+
 export const saveEndTime = () => {
     cars.forEach(car => {
         let endTime = 0
         const { times } = car
         times.forEach(time => {
-            endTime += (time.minutos * 60) + (time.segundos)
+            endTime += (time.minutos * 60) + time.segundos + (time.microsegundos / 1000) // Convertir microsegundos a segundos
         })
 
         car.endTime = endTime
     })
 }
 
+
 export const saveTheBestPositions = () => {
-    cars.sort((a, b) => a.endTime - b.endTime);
-}
+    cars.sort((a, b) => {
+        // Primero, comparamos el número de vueltas
+        const lapsA = Math.floor(a.times.length / a.numberSubTimes);
+        const lapsB = Math.floor(b.times.length / b.numberSubTimes);
+        if (lapsA !== lapsB) {
+            return lapsB - lapsA; // Ordenamos de mayor a menor número de vueltas
+        } else {
+            // Si el número de vueltas es el mismo, comparamos los tiempos finales
+            return a.endTime - b.endTime; // Ordenamos de menor a mayor tiempo final
+        }
+    });
+};
 
 export const renderBestPositions = () => {
     const $tablaPositions = document.querySelector('#tablaPositions')
@@ -189,7 +210,7 @@ export const renderBestPositions = () => {
         $position.textContent = `POSICION: ${i + 1}`
         $numberLaps.textContent = `NUMERO DE VUELTAS: ${Math.floor(car.times.length / car.numberSubTimes)}`
         $numberCar.textContent = `AUTO: ${car.numberCar}`
-        $endTime.textContent = `TIEMPO: ${car.endTime}s`
+        $endTime.textContent = `TIEMPO: ${formatTime(car.endTime)}`
 
         $div.appendChild($position)
         $div.appendChild($numberLaps)
@@ -200,7 +221,18 @@ export const renderBestPositions = () => {
     })
 }
 
+const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60)
+    const seconds = Math.floor(timeInSeconds % 60)
+    const milliseconds = Math.floor((timeInSeconds - Math.floor(timeInSeconds)) * 100)
+
+    const formattedTime = `${minutes}:${seconds}.${milliseconds.toString().padStart(3, '0')}`
+    return formattedTime
+}
+
+
 export const exportData = () => {
+
     cars.forEach(car => {
         fetch("https://sheet.best/api/sheets/e5351bcb-9969-463a-bee1-22d227443399", {
             method: "POST",
@@ -216,8 +248,12 @@ export const exportData = () => {
             }),
         })
 
-        console.log('Exportado correctamente');
     })
+    
+    
+    const btnExportData = document.querySelector('#btnExportData')
+    btnExportData.classList.add('buttonExportar--off')
+    btnExportData.textContent = 'Los datos se exportaron correctamente'
 }
 
 export const fechaActual = () => {
@@ -230,4 +266,28 @@ export const fechaActual = () => {
     let fechaFormateada = dia.toString().padStart(2, '0') + '/' + mes.toString().padStart(2, '0') + '/' + año
 
     return fechaFormateada
+}
+
+
+export const renderAutoVueltas = () => {
+    const $conteinerVueltas = document.querySelector('.conteinerVueltas')
+    $conteinerVueltas.innerHTML = ``
+
+    
+    const sortedCars = [...cars]
+    sortedCars.sort((a, b) => {
+        const lapsA = Math.floor(a.times.length / a.numberSubTimes); // Número de vueltas completadas por el auto A
+        const lapsB = Math.floor(b.times.length / b.numberSubTimes); // Número de vueltas completadas por el auto B
+        return lapsB - lapsA; // Ordenamos de mayor a menor número de vueltas
+    });
+    sortedCars.forEach((car) => {
+        const {numberCar, times, colorCar} = car
+        const numberVuelta = Math.floor(times.length / car.numberSubTimes)
+
+        $conteinerVueltas.innerHTML += 
+        `<div class="itemVueltas ${colorCar}">
+            <p>NUMERO VUELTA: ${numberVuelta}</p>
+            <p>AUTO: ${numberCar} </p> 
+        </div>`
+    })
 }

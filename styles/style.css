@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 /* VARIABLES */
-:root{
+:root {
     /* COLOR */
     --white: white;
     --black: black;
@@ -11,7 +11,7 @@
     --colorGreen: #4ADD97;
     --colorYellow: #FFE588;
     --colorRed: #FF6C6C;
-    --colorGrey: #464646; 
+    --colorGrey: #464646;
 
     /* FONTS */
     --fontMain: "Inter", sans-serif;
@@ -41,7 +41,7 @@
 }
 
 /* NORMALIZACION */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -51,20 +51,20 @@
     border: none;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     background-color: var(--colorLight);
 }
 
-.main{
+.main {
     padding: 100px 0;
     overflow: hidden;
 }
 
-.section{
+.section {
     max-width: 1200px;
     margin: 0 auto;
     padding: 1em;
@@ -74,7 +74,7 @@ body{
 
 
 /* HEADER */
-.header{
+.header {
     background-color: var(--colorLight);
     padding: 1em;
     display: flex;
@@ -88,13 +88,13 @@ body{
     z-index: 20;
 }
 
-.logoItem{
+.logoItem {
     font-size: var(--fontSize-big);
     font-weight: var(--weight-regular);
 }
 
 
-.nav_item{
+.nav_item {
     color: black;
     border: 1px solid transparent;
     border-radius: 5px;
@@ -102,24 +102,24 @@ body{
     transition: all .3s;
 }
 
-.nav_item:hover{
+.nav_item:hover {
     color: var(--colorDark);
     border-color: var(--colorDark);
     scale: 1.1;
 }
 
-.conteinerIconMenu{
+.conteinerIconMenu {
     display: none;
 }
 
 /* PANEL DE CONTROL */
-.panelControl{
+.panelControl {
     display: flex;
     justify-content: space-between;
     gap: 1em;
 }
 
-.buttons{
+.buttons {
     font-size: var(--fontSize-Small);
     display: flex;
     flex-direction: column;
@@ -127,7 +127,7 @@ body{
     width: 100%;
 }
 
-.button{
+.button {
     width: 100%;
     padding: 1.5em;
     border-radius: 10px;
@@ -135,26 +135,26 @@ body{
     transition: scale .3s;
 }
 
-.button:hover{
+.button:hover {
     scale: 1.01;
 }
 
-.button--start{
+.button--start {
     background-color: var(--colorGreen);
 }
 
-.button--pause{
+.button--pause {
     background-color: var(--colorYellow);
 }
 
-.button--stop{
+.button--stop {
     background-color: var(--colorRed);
 }
 
-.clock{
+.clock {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     border: 1px solid var(--black);
     width: 100%;
     padding: 3em 0;
@@ -163,13 +163,21 @@ body{
     max-width: 600px;
 }
 
-.clock_minutes, .clock_seconds, .clock_point{
+.clock_minutes,
+.clock_seconds,
+.clock_point {
     font-size: 5rem;
+}
+
+.clock_MicroSeconds{
+    font-size: 2rem;
+    font-weight: var(--weight-medium);
+    padding-bottom: 12px;
 }
 
 
 /* BUTTON AUTOS */
-.conteinerButtonAutos{
+.conteinerButtonAutos {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -177,8 +185,8 @@ body{
     flex-wrap: wrap;
 }
 
-.buttonAuto{
-    max-width: 150px;   
+.buttonAuto {
+    max-width: 150px;
     min-width: 20%;
     background-color: var(--colorGreen);
     display: flex;
@@ -188,33 +196,33 @@ body{
     border-radius: 10px;
     padding: 1em;
     box-shadow: var(--shadowComponents);
-    transition: scale .3s;
+    transition: transform .3s;
 }
 
 .buttonAuto:hover{
-    scale: 1.01;
+    transform: scale(1.1);
 }
 
-.numberAuto{
+.numberAuto {
     color: var(--white);
     font-size: var(--fontSize-big);
     text-align: right;
 }
 
-.iconAuto{
+.iconAuto {
     color: var(--white);
     font-size: 5rem;
     text-align: center;
 }
 
 
-.conteinerAddAutos{
+.conteinerAddAutos {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.buttonAddAutos{
+.buttonAddAutos {
     width: 20%;
     background-color: var(--colorGrey);
     border-radius: 10px;
@@ -226,40 +234,40 @@ body{
     transition: scale .3s;
 }
 
-.buttonAddAutos:hover{
+.buttonAddAutos:hover {
     scale: 1.01;
 }
 
-.iconAddAutos{
+.iconAddAutos {
     font-size: 5rem;
     color: var(--colorLight);
 }
 
-.select{
+.select {
     border: 2px solid black;
 }
 
 /* TIEMPOS */
 
-.headerTiempos{
+.headerTiempos {
     display: flex;
     justify-content: space-between;
     align-items: center;
     display: none;
 }
 
-.sectionTitle{
+.sectionTitle {
     font-size: var(--fontSize-big);
     font-weight: var(--weight-semiBold);
 }
 
-.filtros{
+.filtros {
     display: flex;
     justify-content: center;
     gap: 30px;
 }
 
-.button_filtro{
+.button_filtro {
     background-color: var(--colorGrey);
     color: var(--white);
     padding: 1em;
@@ -268,16 +276,17 @@ body{
     transition: scale .3s;
 }
 
-.button_filtro:hover{
+.button_filtro:hover {
     scale: 1.01;
 }
 
-.sectionTablaPosiciones{
+.sectionTablaPosiciones {
     flex-direction: column;
     display: none;
 }
 
-.conteinerTiempos, .conteinerTablaPosiciones{
+.conteinerTiempos,
+.conteinerTablaPosiciones {
     display: flex;
     text-align: center;
     padding-top: 50px;
@@ -286,7 +295,9 @@ body{
     gap: 30px;
 }
 
-.item_tiempo, .item_position{
+.item_tiempo,
+.item_position, 
+.itemVueltas {
     font-size: var(--fontSize-Small);
     display: flex;
     align-items: center;
@@ -297,15 +308,33 @@ body{
 }
 
 
+/* VUELTAS */
+.sectionVueltas{
+    display: none;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.conteinerVueltas{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.itemVueltas{
+    justify-content: space-around
+}
+
+
 /* EXPORTAR */
-.exportar{
+.exportar {
     display: flex;
     justify-content: center;
     align-items: center;
     display: none;
 }
 
-.buttonExportar{
+.buttonExportar {
     background-color: var(--colorGreen);
     padding: 1em;
     border-radius: 10px;
@@ -315,13 +344,19 @@ body{
     transition: scale .3s;
 }
 
-.buttonExportar:hover{
+.buttonExportar:hover {
     scale: 1.01;
+}
+
+.buttonExportar--off{
+    border: 1px solid black;
+    background-color: var(--colorLight);
+    color: var(--black);
 }
 
 
 /* CUSTOM CAR */
-.conteinerCustomCar{
+.conteinerCustomCar {
     z-index: 5;
     position: fixed;
     top: 0;
@@ -330,23 +365,23 @@ body{
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     background-color: var(--colorLight);
     transform: translate(100%);
     transition: transform .5s;
 }
 
-.customCar{
+.customCar {
     display: flex;
     flex-direction: column;
     max-width: 600px;
     width: 100%;
     padding: 1em;
+    padding-top: 10em;
     gap: 30px;
     border-radius: 10px;
 }
 
-.customCarInput{
+.customCarInput {
     padding: 1em;
     border-radius: 10px;
     box-shadow: var(--shadowComponents);
@@ -355,19 +390,20 @@ body{
     border: 1px solid var(--black);
 }
 
-.customCarp{
+.customCarp {
     text-align: center;
     font-weight: var(--weight-semiBold);
 }
 
-.conteinerColor{
+.conteinerColor {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     align-items: center;
     justify-content: center;
 }
-.color{
+
+.color {
     width: 100px;
     height: 100px;
     border-radius: 100%;
@@ -375,11 +411,11 @@ body{
     transition: scale .3s;
 }
 
-.color:hover{
+.color:hover {
     scale: 1.01;
 }
 
-.buttonCustomCar{
+.buttonCustomCar {
     background-color: var(--colorGreen);
     padding: 1em;
     border-radius: 10px;
@@ -387,16 +423,16 @@ body{
     transition: scale .3s;
 }
 
-.buttonCustomCar:hover{
+.buttonCustomCar:hover {
     scale: 1.01;
 }
 
-.buttonCustomCar--cancel{
+.buttonCustomCar--cancel {
     background-color: var(--bgRed);
 }
 
 /* NAV FLOAT */
-.navFloat{
+.navFloat {
     position: fixed;
     top: 0;
     left: 0;
@@ -414,50 +450,50 @@ body{
     transition: transform .3s;
 }
 
-.navFloat_item{
-  border: 1px solid black;
-  width: 100%;
-  text-align: center;
-  padding: 1em;
-  color: var(--black);
-  border-radius: 10px;
-  transition: scale .3s;
-  box-shadow: var(--shadowComponents);
+.navFloat_item {
+    border: 1px solid black;
+    width: 100%;
+    text-align: center;
+    padding: 1em;
+    color: var(--black);
+    border-radius: 10px;
+    transition: scale .3s;
+    box-shadow: var(--shadowComponents);
 }
 
-.navFloat_item:hover{
-  scale: 1.01;
+.navFloat_item:hover {
+    scale: 1.01;
 }
 
-.active{
+.active {
     transform: translate(0);
 }
 
 /* BACKGROUNDS */
-.bgGreen{
+.bgGreen {
     background-color: var(--bgGreen);
 }
 
-.bgYellow{
+.bgYellow {
     background-color: var(--bgYellow);
 }
 
-.bgRed{
+.bgRed {
     background-color: var(--bgRed);
 }
 
-.bgPurple{
+.bgPurple {
     background-color: var(--bgPurple);
 }
 
-.bgBlue{
+.bgBlue {
     background-color: var(--bgBlue);
 }
 
-.bgPink{
+.bgPink {
     background-color: var(--bgPink);
 }
 
-.displayFlex{
+.displayFlex {
     display: flex;
 }
